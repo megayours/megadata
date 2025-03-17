@@ -6,8 +6,7 @@ import {
 import { generateSigner, percentAmount, keypairIdentity, createSignerFromKeypair, publicKey } from '@metaplex-foundation/umi'
 import { Keypair } from '@solana/web3.js'
 import * as fs from 'fs'
-import { createMegadata } from '../src/solana/bridge/mint'
-import { updateMegadata } from '../src/solana/bridge/update'
+import { createMegadata, updateMegadata } from '@megayours/megadata/solana'
 // Read and create the keypair
 const payerSecretKey = new Uint8Array(JSON.parse(fs.readFileSync('clients/ts/examples/payer-keypair.json', 'utf-8')));
 const payerKeypair = Keypair.fromSecretKey(payerSecretKey);

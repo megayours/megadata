@@ -1,24 +1,28 @@
 {
   "name": "@megayours/megadata",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "module": "index.ts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "An SDK for creating and managing megadata",
   "exports": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/index.js",
-    "require": "./dist/index.cjs"
+    "./solana": {
+      "types": "./dist/solana/index.d.ts",
+      "import": "./dist/solana/index.js",
+      "require": "./dist/solana/index.cjs"
+    }
   },
   "scripts": {
-    "build": "bun build --target=node ./src/index.ts --outfile=dist/index.js && bun run build:declaration",
+    "build": "bun build --target=node ./src/index.ts --outfile=dist/index.js && bun build --target=node ./src/solana/index.ts --outfile=dist/solana/index.js && bun run build:declaration",
     "build:declaration": "tsc --emitDeclarationOnly --project tsconfig.types.json",
     "postbuild": "rimraf tsconfig.types.tsbuildinfo"
   },
   "files": [
     "dist/*.js",
-    "dist/*.d.ts"
+    "dist/*.d.ts",
+    "dist/solana/*.js",
+    "dist/solana/*.d.ts"
   ],
   "keywords": [
     "megayours",

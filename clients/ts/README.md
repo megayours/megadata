@@ -13,7 +13,7 @@ The example below displays the simple integration with the Metaplex SDK in order
 ```ts
 import { createNft } from '@metaplex-foundation/mpl-token-metadata';
 import { percentAmount } from '@metaplex-foundation/umi'
-import { createMegadata } from '@megayours/megadata/solana/bridge/mint';
+import { createMegadata } from '@megayours/megadata/solana';
 
 const megadataUri = await createMegadata({
   umi,
@@ -45,7 +45,7 @@ await createNft(umi, {
 The example below allows the minter to update the megadata of an existing token. E.g. changing the hat equipped by the NFT.
 
 ```ts
-import { updateMegadata } from '@megayours/megadata/solana/bridge/update';
+import { updateMegadata } from '@megayours/megadata/solana';
 
 await updateMegadata({
   umi,
