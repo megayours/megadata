@@ -1,0 +1,47 @@
+{
+  "name": "@megayours/megadata",
+  "type": "module",
+  "version": "0.0.1",
+  "module": "index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "description": "An SDK for creating and managing megadata",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.js",
+    "require": "./dist/index.cjs"
+  },
+  "scripts": {
+    "build": "bun build --target=node ./src/index.ts --outfile=dist/index.js && bun run build:declaration",
+    "build:declaration": "tsc --emitDeclarationOnly --project tsconfig.types.json",
+    "postbuild": "rimraf tsconfig.types.tsbuildinfo"
+  },
+  "files": [
+    "dist/*.js",
+    "dist/*.d.ts"
+  ],
+  "keywords": [
+    "megayours",
+    "megadata",
+    "solana"
+  ],
+  "homepage": "https://github.com/megayours/megadata-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/megayours/megadata-sdk.git"
+  },
+  "bugs": "https://github.com/megayours/megadata-sdk/issues",
+  "author": "Viktor Plane <viktor.plane@megayours.com>",
+  "dependencies": {
+    "@metaplex-foundation/mpl-token-metadata": "^3.4.0",
+    "@metaplex-foundation/umi": "^1.1.1",
+    "@metaplex-foundation/umi-bundle-defaults": "^1.1.1",
+    "@solana/web3.js": "1",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "bun-plugin-dts": "^0.3.0",
+    "rimraf": "^6.0.1"
+  }
+}
