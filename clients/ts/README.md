@@ -2,6 +2,8 @@
 
 ## Usage
 
+The SDK is currently experimental and configured to use our program on Solana devnet.
+
 ### Metaplex Integration
 
 #### Minting
