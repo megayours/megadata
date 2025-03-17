@@ -1,7 +1,7 @@
 {
   "name": "@megayours/megadata",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "module": "index.ts",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -25,7 +25,7 @@
     "megadata",
     "solana"
   ],
-  "homepage": "https://github.com/megayours/megadata-sdk#readme",
+  "homepage": "https://github.com/megayours/megadata-sdk/blob/main/clients/ts/README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/megayours/megadata-sdk.git"
@@ -36,8 +36,7 @@
     "@metaplex-foundation/mpl-token-metadata": "^3.4.0",
     "@metaplex-foundation/umi": "^1.1.1",
     "@metaplex-foundation/umi-bundle-defaults": "^1.1.1",
-    "@solana/web3.js": "1",
-    "fs": "^0.0.1-security"
+    "@solana/web3.js": "1"
   },
   "devDependencies": {
     "@types/bun": "latest",

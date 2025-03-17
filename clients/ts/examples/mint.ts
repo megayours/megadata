@@ -7,7 +7,7 @@ import { generateSigner, percentAmount, keypairIdentity, createSignerFromKeypair
 import { Keypair } from '@solana/web3.js'
 import * as fs from 'fs'
 import { createMegadata } from '../src/solana/bridge/mint'
-
+import { updateMegadata } from '../src/solana/bridge/update'
 // Read and create the keypair
 const payerSecretKey = new Uint8Array(JSON.parse(fs.readFileSync('clients/ts/examples/payer-keypair.json', 'utf-8')));
 const payerKeypair = Keypair.fromSecretKey(payerSecretKey);
@@ -30,13 +30,15 @@ const megadataUri = await createMegadata({
   umi,
   mint,
   megadata: {
-    "moduel1": {
-      "key1": "value1",
-      "key2": "value2"
+    "pfps": {
+      "Hair": "Brown Textured Crop",
+      "Length (CM)": "174"
     },
-    "moduel2": {
-      "key1": "value1",
-      "key2": "value2"
+    "equippables": {
+      "Hat": "Blue Cap",
+      "Shirt": "Black T-Shirt",
+      "Pants": "Shorts",
+      "Shoes": "Brown Moccasins"
     }
   }
 })
@@ -46,10 +48,20 @@ const status = await createNft(umi, {
   name: 'My NFT',
   uri: megadataUri,
   sellerFeeBasisPoints: percentAmount(5.5),
-}).sendAndConfirm(umi)
+}).sendAndConfirm(umi);
 
 console.log("mint", status.signature.toString());
 
 const asset = await fetchDigitalAsset(umi, mint.publicKey)
 
 console.log(asset)
+
+await updateMegadata({
+  umi,
+  mint,
+  megadata: {
+    "equippables": {
+      "Hat": "Red Cap"
+    }
+  }
+});
